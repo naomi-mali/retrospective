@@ -11,7 +11,10 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
         <Navbar.Brand>
-          <img src={logo} alt="logo" height="75" width="85" />
+          <img src={logo} alt="logo" height="75" width="85" style={{
+    filter: "drop-shadow(0px 0px 10px white)"
+  }}
+/>
         </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
