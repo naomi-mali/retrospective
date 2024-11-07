@@ -56,4 +56,18 @@
     cursor: pointer;
     transition: color ease-in-out 0.3s;
     color: #ffffff;
-  } 
+  }
+
+/* Style the toggle button background to black */
+.navbar-toggler {
+  border: 2px solid white !important; /* Set border to white */
+  background-color: black !important; /* Set background to black */
+}
+
+/* Set the hamburger icon (three bars) to white */
+.navbar-toggler-icon {
+  background-color: white !important; /* Set the hamburger icon to white */
+}
+
+
+  

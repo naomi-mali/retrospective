@@ -1,18 +1,18 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../assets/logo.png";
-import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
 import axios from "axios";
+
+import logo from "../assets/logo.png";
+import Avatar from "./Avatar";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -24,65 +24,50 @@ const NavBar = () => {
   };
 
   const addPostIcon = (
-    <NavLink
-      className={styles.NavLink}
-      activeClassName={styles.Active}
-      to="/posts/create"
-    >
-      <i class="fa-regular fa-images"></i> +Add Post
+    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
+      <i className="fa-regular fa-images"></i> +Add Post
     </NavLink>
   );
 
   const loggedInIcons = (
     <>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/feed"
-      >
+      <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed">
         <i className="fas fa-stream"></i> Feed
       </NavLink>
-      <NavLink to={`/profiles/${currentUser?.profile_id}`}
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      ><Avatar src={currentUser?.profile_image} height={20} width={22.5} text="Profile" />
-      </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="chat"
+        to={`/profiles/${currentUser?.profile_id}`}
       >
-        <i class="fa-regular fa-message"></i> Chats
+        <Avatar src={currentUser?.profile_image} height={20} width={22.5} text="Profile" />
       </NavLink>
-
+      <NavLink
+        exact
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/chat"
+      >
+        <i className="fa-regular fa-message"></i> Chats
+      </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i> Sign out
       </NavLink>
-      
     </>
   );
 
   const loggedOutIcons = (
     <>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/signin"
-      >
+      <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signin">
         <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
-      <NavLink
-        to="/signup"
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-      >
+      <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">
         <i className="fas fa-user-plus"></i> Sign up
       </NavLink>
     </>
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
@@ -96,15 +81,16 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addPostIcon}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+        ref={ref}
+        onClick={() => setExpanded(!expanded)}
+        aria-controls="basic-navbar-nav"
+        style={{ border: "2px solid white", backgroundColor: "rgba(255, 255, 255, 0.6)"}}
+        />
+        
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink
-              exact
-              className={styles.NavLink}
-              activeClassName={styles.Active}
-              to="/"
-            >
+            <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">
               <i className="fa-solid fa-magnifying-glass"></i> Discover
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
