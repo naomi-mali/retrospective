@@ -22,6 +22,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete, handleReport }) => {
         className={`text-center ${styles.DropdownMenu}`}
         popperConfig={{ strategy: "fixed" }}
       >
+        {handleEdit &&
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleEdit}
@@ -29,6 +30,8 @@ export const MoreDropdown = ({ handleEdit, handleDelete, handleReport }) => {
         >
           <i className="fas fa-edit" /> 
         </Dropdown.Item>
+        }
+        {handleDelete &&
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
@@ -36,6 +39,8 @@ export const MoreDropdown = ({ handleEdit, handleDelete, handleReport }) => {
         >
           <i className="fas fa-trash-alt" /> 
         </Dropdown.Item>
+        }
+        {handleReport &&
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleReport}
@@ -44,6 +49,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete, handleReport }) => {
         >
           <i className="fa-regular fa-flag" />
         </Dropdown.Item>
+        }
       </Dropdown.Menu>
     </Dropdown>
   );

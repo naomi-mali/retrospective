@@ -41,7 +41,7 @@ const Post = (props) => {
     }
   };
 
-const handleReport = async () => {
+  const handleReport = async () => {
     try {
       await axiosRes.post("/reports/", { post: id });
       alert("The post has been reported.");
@@ -91,24 +91,29 @@ const handleReport = async () => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-          <span className={styles.PostDate}>{updated_at}</span>
-          {is_owner && postPage && (
+            <span className={styles.PostDate}>{updated_at}</span>
+            {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
-                handleReport={handleReport}
               />
+            )}
+           <span className={styles.PostDate}></span>
+           {!is_owner && postPage && (
+            <MoreDropdown 
+            handleReport={handleReport}
+            />
             )}
           </div>
         </Media>
         <Card.Body>
           <div className={styles.PostImageWrapper}>
             <Link to={`/posts/${id}`}>
-            <Card.Img src={image} alt={title} />
+              <Card.Img src={image} alt={title} />
             </Link>
-            </div>
-            {title && <div className={styles.PolaroidCaption}>{title}</div>}
-            </Card.Body>
+          </div>
+          {title && <div className={styles.PolaroidCaption}>{title}</div>}
+        </Card.Body>
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
@@ -116,7 +121,7 @@ const handleReport = async () => {
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
             >
-            <i className="far fa-heart" />
+              <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
@@ -125,8 +130,8 @@ const handleReport = async () => {
           ) : currentUser ? (
             <span onClick={handleLike}>
               <i 
-              className={`far fa-heart ${styles.HeartOutline}`}
-               />
+                className={`far fa-heart ${styles.HeartOutline}`} 
+              />
             </span>
           ) : (
             <OverlayTrigger
