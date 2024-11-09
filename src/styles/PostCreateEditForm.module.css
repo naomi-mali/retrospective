@@ -1,5 +1,7 @@
 .Container {
   min-height: 343px;
+  max-height: 700px;
+  object-fit: contain;
 }
 
 input[type="file"] {

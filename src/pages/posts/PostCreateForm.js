@@ -182,7 +182,7 @@ function PostCreateForm() {
                     className={appStyles.Image} 
                     src={image} 
                     rounded
-                    style={{ width: '600px', height: 'auto', maxHeight: '650px', objectFit: 'cover' }}
+                    style={{ width: '600px', height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
                      />
                   </figure>
                   <div>

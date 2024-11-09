@@ -2,7 +2,7 @@
 /* General Post styling */
 .Post {
   margin: 20px auto;
-  max-width: 600px;
+  max-width: 700px;
   border: none;
   background-color: #ffffff;
   border-radius: 8px;
@@ -19,11 +19,16 @@
   text-align: center;
   position: relative;
   border-radius: 4px;
+  max-height: 500px;
+  overflow: hidden;
 }
 
 .PostImageWrapper img {
   display: block;
   width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: contain;
   border-radius: 2px;
 }
 
