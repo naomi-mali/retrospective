@@ -1,0 +1,39 @@
+/* MoreDropdown.module.css */
+.DropdownMenu {
+    background-color: #0e0d0d;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0); 
+    min-width: 120px;
+  }
+  
+  .DropdownItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: #000000; 
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .DropdownItem:hover {
+    background-color: #f0f0f0; 
+    color: #0056b3; 
+  }
+  
+  .ThreeDotsIcon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0a0a0a; 
+    margin-right: 10px;
+  }
+  
+  .ThreeDotsIcon:hover {
+    color: #06b100;
+  }
+
+  .ThreeDotsContainer {
+    display: flex;
+    justify-content: flex-end; /* Aligns the icon to the right */
+  } 
+  
