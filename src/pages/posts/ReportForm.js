@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, Container } from "react-bootstrap";
 import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults"; // Ensure axios is set up
+import { axiosReq } from "../../api/axiosDefaults"; 
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/ReportForm.module.css";
+
 
 function ReportForm({ postId }) {
   const [reportData, setReportData] = useState({

@@ -1,92 +1,137 @@
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
-import { Col, Row, Container, Button, Image } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
-import Avatar from "../../components/Avatar";
-import PopularProfiles from "./PopularProfiles";
+
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+
 import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-const ProfilePage = () => {
-  const { profile_id } = useParams();
-  const [profile, setProfile] = useState(null);
+import PopularProfiles from "./PopularProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useParams } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
+import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
+
+function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
+  const { id } = useParams();
+
+  const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
+  const { pageProfile } = useProfileData();
+
+  const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
-    const fetchProfile = async () => {
+    const fetchData = async () => {
       try {
-        const { data } = await axiosReq.get(`/profiles/${profile_id}/`);
-        setProfile(data);
+        const [{ data: pageProfile }, { data: profilePosts }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}/`),
+            axiosReq.get(`/posts/?owner__profile=${id}`),
+          ]);
+        setProfileData((prevState) => ({
+          ...prevState,
+          pageProfile: { results: [pageProfile] },
+        }));
+        setProfilePosts(profilePosts);
         setHasLoaded(true);
-      } catch (error) {
-        console.error("Error fetching profile:", error);
+      } catch (err) {
+        console.log(err);
       }
     };
-
-    fetchProfile();
-  }, [profile_id]);
-
-  if (!profile) return <Asset spinner />;
+    fetchData();
+  }, [id, setProfileData]);
 
   const mainProfile = (
-    <Row noGutters className="px-3 text-center">
-      <Col lg={3} className="text-lg-left">
-        <Image className={styles.ProfileImage} roundedCircle src={profile.image} />
-      </Col>
-      <Col lg={6}>
-        <h3 className="m-2">{profile.owner}</h3>
-        <Row className="justify-content-center no-gutters">
-          <Col xs={3} className="my-2">
-            <div>{profile.posts_count}</div>
-            <div>posts</div>
-          </Col>
-          <hr></hr>
-          <Col xs={3} className="my-2">
-            <div>{profile.followers_count}</div>
-            <div>followers</div>
-          </Col>
-          <hr></hr>
-          <Col xs={3} className="my-2">
-            <div>{profile.following_count}</div>
-            <div>following</div>
-          </Col>
-        </Row>
-      </Col>
-      <Col 
-      lg={8} 
-      style={{position: "absolute", top: 25, right: 15, zIndex: 1,}}
-      className="text-lg-right"
-      >
-        {currentUser && !is_owner && (
-          <>
-            <Button
-              className={`${btnStyles.Button} ${profile.following_id ? btnStyles.BlackOutline : btnStyles.Black}`}
-              onClick={() => {}}
-            >
-              {profile.following_id ? "Unfollow" : "Follow"}
-            </Button>
-            <NavLink exact to="/chat">
-              <Button className={`${btnStyles.Button} ${btnStyles.BlackOutline} ml-2`}>
-                Message
+    <>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      <Row noGutters className="px-3 text-center">
+        <Col lg={3} className="text-lg-left">
+          <Image
+            className={styles.ProfileImage}
+            roundedCircle
+            src={profile?.image}
+          />
+        </Col>
+        <Col lg={6}>
+          <h3 className="m-2">{profile?.owner}</h3>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2">
+              <div>{profile?.posts_count}</div>
+              <div>posts</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.followers_count}</div>
+              <div>followers</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{profile?.following_count}</div>
+              <div>following</div>
+            </Col>
+          </Row>
+        </Col>
+        <Col lg={3} className="text-lg-right">
+          {currentUser &&
+            !is_owner &&
+            (profile?.following_id ? (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                onClick={() => handleUnfollow(profile)}
+              >
+                unfollow
               </Button>
-            </NavLink>
-          </>
-        )}
-      </Col>
-      {profile.content && <Col className="p-3">{profile.content}</Col>}
-    </Row>
+            ) : (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                onClick={() => handleFollow(profile)}
+              >
+                follow
+              </Button>
+            ))}
+        </Col>
+        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+      </Row>
+    </>
   );
 
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <p className="text-center">{profile?.owner}'s posts</p>
       <hr />
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+          children={profilePosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => fetchMoreData(profilePosts, setProfilePosts)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
@@ -110,6 +155,6 @@ const ProfilePage = () => {
       </Col>
     </Row>
   );
-};
+}
 
 export default ProfilePage;
