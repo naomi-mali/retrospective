@@ -1,3 +1,25 @@
 .WordBreak {
     word-break: break-all;
   }
+
+  .StatsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .StatsSection > div {
+    font-weight: bold;
+  }
+  
+  .GreenButton {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .GreenButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
