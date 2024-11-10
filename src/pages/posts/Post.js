@@ -115,40 +115,35 @@ const Post = (props) => {
         </Card.Body>
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i 
-                className={`far fa-heart ${styles.HeartOutline}`} 
-              />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {likes_count}
-          <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
-        </div>
-      </Card.Body>
-    </Card>
-  );
+  {is_owner ? (
+    <i className="far fa-heart" />
+  ) : like_id ? (
+    <span onClick={handleUnlike}>
+      <i className={`fas fa-heart ${styles.Heart}`} />
+    </span>
+  ) : currentUser ? (
+    <span onClick={handleLike}>
+      <i 
+        className={`far fa-heart ${styles.HeartOutline}`} 
+      />
+    </span>
+    ) : (
+    <OverlayTrigger
+    placement="top"
+    overlay={<Tooltip>Log in to like posts!</Tooltip>}
+  >
+    <i className="far fa-heart" />
+  </OverlayTrigger>
+)}
+{likes_count}
+<Link to={`/posts/${id}`}>
+<i className={`far fa-comments ${styles.CommentOutline}`} /> 
+</Link>
+{comments_count}
+</div>
+</Card.Body>
+</Card>
+);
 };
 
 export default Post;

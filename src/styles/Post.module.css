@@ -42,6 +42,25 @@
   text-align: center;
 }
 
+/* CommentCreateEditForm.module.css */
+
+/* Styling for the solid comment icon */
+.Comment {
+  color: #ff2a04; /* Red color for the comment icon */
+}
+
+.Comment:hover {
+  color: #0c0c0c; /* Dark color on hover */
+}
+
+/* Styling for the outlined comment icon */
+.CommentOutline {
+  color: #ff2600; /* Lighter red color for the outline version */
+}
+
+.CommentOutline:hover {
+  color: #000000; /* Dark color on hover for the outline icon */
+}
 
 .Heart {
   color: #ff2a04;
@@ -58,6 +77,27 @@
 .HeartOutline:hover {
   color: #000000;
 }
+
+/* CommentCreateEditForm.module.css */
+
+/* Styling for the solid comment icon */
+.Comment {
+  color: #ff2a04; /* Red color for the comment icon */
+}
+
+.Comment:hover {
+  color: #0c0c0c; /* Dark color on hover */
+}
+
+/* Styling for the outlined comment icon */
+.CommentOutline {
+  color: #ff2600; /* Lighter red color for the outline version */
+}
+
+.CommentOutline:hover {
+  color: #000000; /* Dark color on hover for the outline icon */
+}
+
 
 .PostDate {
   font-family: 'Homemade Apple', sans-serif;
