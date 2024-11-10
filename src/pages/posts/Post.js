@@ -43,8 +43,7 @@ const Post = (props) => {
 
   const handleReport = async () => {
     try {
-      await axiosRes.post("/reports/", { post: id });
-      alert("The post has been reported.");
+      history.push(`/posts/${id}/report`);
     } catch (err) {
       console.log(err);
     }
