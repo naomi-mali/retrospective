@@ -1,52 +1,48 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, Container } from "react-bootstrap";
-import { useHistory } from "react-router";
+import {useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults"; 
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/ReportForm.module.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-
-function ReportForm({ postId }) {
-  const [reportData, setReportData] = useState({
+const Report = () => {
+  const [reportFormData, setReportFormData] = useState({
     category: "select",
     comment: "",
   });
-  const { category, comment } = reportData;
 
+  const { category, comment } = setReportFormData;
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
   const handleChange = (event) => {
-    setReportData({
-      ...reportData,
+    setReportFormData({
+      ...reportFormData,
       [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Create FormData object to send the report data
-    const formData = new FormData();
-    formData.append("post", postId);
-    formData.append("category", category);
-    formData.append("comment", comment);
-
     try {
-      const response = await axiosReq.post("/reports/", formData);
+      const response = await axiosReq.post("/report/", reportFormData);
       console.log("Report submitted:", response.data);
-      
-      // Redirect back to the post page
-      history.push(`/posts/${postId}`);
+      // Redirect to the report confirmation page
+      history.push("/feed");
     } catch (err) {
       console.error("Error submitting report:", err.response || err);
       if (err.response) {
         console.error("Error details:", err.response.data);
+        setErrors(err.response.data);
       }
     }
   };
 
   return (
+    <Row>
+      <Col>
     <Container className={styles["form-container"]}>
       <h4>Report Post</h4>
       <Form onSubmit={handleSubmit}>
@@ -102,7 +98,9 @@ function ReportForm({ postId }) {
         </Button>
       </Form>
     </Container>
+    </Col>
+  </Row>
   );
 }
 
-export default ReportForm;
+export default Report;
