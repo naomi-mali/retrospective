@@ -23,6 +23,7 @@
   }
 
   .Heading2 {
+    padding-top: 25px;
     font-size: 1.3rem;
     text-align: center;
     color: #DE4633;
@@ -36,20 +37,17 @@
   }
 
   .Link {
-    font-size: 14px;
-    color:  #006935;
+    color:  #4747e7;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 400;
   }
   
-  .Link a {
-    color:  #0e1bce; 
-    text-decoration: none; /* Remove underline */
-  }
   
-  .Link a:hover {
+  .Link:hover {
     text-decoration: underline; 
-    color: #a03021;
+    transition: color 0.3s ease;
+    font-weight: 400;
   }
   
 

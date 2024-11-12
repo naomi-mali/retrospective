@@ -20,12 +20,10 @@ const About = () => {
         <Card.Body>
           <h6 className={`${appStyles.Handwritten} ${styles.Heading1}`}>Retrospective</h6>
           <Card.Text className={`${styles.Heading3}`}>
-            "Reflect on life's meaningful moments, share your highlights,
-            and connect with others in a community that cherishes life and celebrates everyday wonders."
+            Reflect on life's meaningful moments, share your highlights,
+            and connect with others in a community that cherishes life and celebrates everyday wonders.
           </Card.Text>
-          <h6 className={`${styles.Heading2} `}>
-          Got a question or feedback? We’re here to help – reach out anytime!
-          </h6>
+          
           {currentUser ? (
             <Link to="/contact-us">
               <Button className={btnStyles.Button} variant="primary">
@@ -44,7 +42,13 @@ const About = () => {
                   Sign In
                 </Button>
               </Link>
-              <p className={`pt-3 ${styles.Link}`}>Have a question? <Link to="/contact-us">Get in touch</Link></p>
+              
+               <h6 className={`${styles.Heading2} `}>
+                Got a question or feedback? We’re here to help – 
+                <Link to="/contact-us" className={`pt-3 ${styles.Link}`}>reach out! </Link></h6>
+                <p className={`pt-3 ${styles.Link}`}></p>
+              
+          
             </>
           )}
         </Card.Body>

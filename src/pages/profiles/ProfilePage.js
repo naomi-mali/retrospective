@@ -100,6 +100,13 @@ function ProfilePage() {
             ))}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        {profile?.bio && (
+          <Col lg={12} className="p-3">
+            <div className={styles.BioContainer}>
+              {profile.bio}
+            </div>
+          </Col>
+        )}
       </Row>
     </>
   );

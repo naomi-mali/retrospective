@@ -17,14 +17,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import { OverlayTrigger, Tooltip } from "react-bootstrap"; // Ensure you have the correct imports
 
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
+  const [comments, setComments] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -36,7 +37,7 @@ function PostPage() {
         setPost({ results: [post] });
         setComments(comments);
       } catch (err) {
-        // console.log(err);
+        // Handle errors here if needed
       }
     };
 
@@ -61,6 +62,7 @@ function PostPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
+
           {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
@@ -79,7 +81,18 @@ function PostPage() {
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (
-            <span>No comments... yet</span>
+            <span>
+              No comments... yet.{" "}
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to comment!</Tooltip>}
+              >
+                <span style={{ textDecoration: "underline", cursor: "pointer" }}>
+                  Log in
+                </span>
+              </OverlayTrigger>{" "}
+              to be able to comment.
+            </span>
           )}
         </Container>
       </Col>

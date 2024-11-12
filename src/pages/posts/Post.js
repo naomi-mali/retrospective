@@ -34,7 +34,7 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+      history.push(`/discover/`);
     } catch (err) {
       console.log(err);
     }
@@ -138,10 +138,16 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
-          <Link to={`/posts/${id}`}>
-            <i className={`far fa-comments ${styles.CommentOutline}`} />
-          </Link>
-          {comments_count}
+          {currentUser ? (
+  <Link to={`/posts/${id}`}>
+    <i className={`far fa-comments ${styles.CommentOutline}`} />
+  </Link>
+) : (
+  <OverlayTrigger placement="top" overlay={<Tooltip>Log in to comment!</Tooltip>}>
+    <i className={`far fa-comments ${styles.CommentOutline}`} />
+  </OverlayTrigger>
+)}
+{comments_count}
         </div>
       </Card.Body>
     </Card>
