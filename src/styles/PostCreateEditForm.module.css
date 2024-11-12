@@ -2,6 +2,8 @@
   min-height: 343px;
   max-height: 700px;
   object-fit: contain;
+  margin-top: 20px;
+  border-radius: 5px;
 }
 
 input[type="file"] {
@@ -10,4 +12,144 @@ input[type="file"] {
 
 .FormButtons {
   width: 7rem;
+}
+
+.LargeScreenTitle {
+  margin-right: 20rem;  /* margin-right for larger screens */
+  font-family: "Homemade Apple", sans-serif;
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 29px;
+}
+
+.FormContainer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+/* Style for individual form groups */
+.FormGroup {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* Label styling */
+.FormLabel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+/* Input field styling */
+.FormInput {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+}
+
+.FormTextArea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+}
+
+/* Category dropdown styling */
+.SelectCategory {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+/* Styling for the alert messages */
+.AlertMessage {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #f87171;
+  font-weight: bold;
+}
+
+/* Button container for layout */
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Base button styling */
+.Button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+/* Blue button */
+.ButtonBlue {
+  background-color: #1dd836; /* Blue color */
+  color: white;
+  border: none;
+}
+
+.ButtonBlue:hover {
+  background-color: #1dd836; /* Darker blue on hover */
+}
+
+/* Cancel button styles */
+.ButtonCancel {
+  background-color: #1dd836; /* Red color for cancel */
+  color: white;
+  border: none;
+}
+
+.ButtonCancel:hover {
+  background-color: #ef4444; /* Darker red on hover */
+}
+
+/* Optional: Add a specific margin or padding for positioning buttons */
+.ButtonContainer {
+  display: flex;
+  gap: 1rem; /* Adds space between buttons */
+  justify-content: center; /* Centers buttons */
+}
+
+
+@media (max-width: 767px) {
+  .Container {
+    padding: 1rem; 
+    margin-top: 4rem;
+    margin-bottom: 140px;
+    object-fit: contain;
+  }
+
+  .FormContainer {
+    max-width: 100%; /* Full width for mobile */
+    padding: 0.5rem; /* Minimal padding to avoid overflow */
+    overflow: hidden; /* Prevents overflow issues */
+  }
+
+  .Input {
+    width: 100%; /* Full width for input fields */
+    box-sizing: border-box; /* Ensures padding doesn’t overflow */
+  }
+  .LargeScreenTitle {
+    margin-right: 0;
+    object-fit: contain;
+  }
+
 }

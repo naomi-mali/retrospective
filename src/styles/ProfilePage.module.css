@@ -26,8 +26,8 @@
 
 /* ProfilePage.module.css */
 .ProfileImage {
-  width: 150px; 
-  height: 150px;
+  width: 170px; 
+  height: 170px;
   object-fit: cover;
   margin-bottom: 50px 20px 9px; 
 }
@@ -58,6 +58,12 @@
   .PhotoAlbum {
     grid-template-columns: 1fr; /* One photo per row on small screens */
   }
+
+  .ProfileImage {
+    width: 120px; /* Adjust size for mobile */
+    height: 120px; /* Adjust size for mobile */
+    margin-bottom: 20px; /* Adjust margin for mobile */
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -65,12 +71,4 @@
     grid-template-columns: repeat(2, 1fr); /* Two photos per row on medium screens */
   }
 }
-
-@media (max-width: 768px) {
-  .ProfileImage {
-    width: 10px;
-    height: 10px;
-  }
-}
-
 
