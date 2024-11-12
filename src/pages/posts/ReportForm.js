@@ -51,10 +51,10 @@ const Report = ({ userId, postId }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosReq.post(`report`, reportFormData);
+      await axiosReq.post("/report/", reportFormData);
       history.push(`/thanks`);
     } catch (err) {
-      // console.log(err);
+       console.log(err);
       setErrors(err.response?.data);
     }
   };
