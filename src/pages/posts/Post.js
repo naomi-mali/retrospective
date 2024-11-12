@@ -42,11 +42,7 @@ const Post = (props) => {
   };
 
   const handleReport = async () => {
-    try {
       history.push(`/posts/${id}/report`);
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   const handleLike = async () => {

@@ -16,24 +16,31 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ReportForm from "./pages/posts/ReportForm";
-
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+import Thanks from "./pages/contact/Thanks";
 
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
   return (
-    <div className={styles.App}>
+
+  <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <PostsPage message="No results found. Adjust the search keyword." />
-            )}
-          />
+          <Route exact path="/" render={() => <About />} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/contact-us" render={() => <Contact />} />
+          <Route exact path="/thanks" render={() => <Thanks />} />
+          
+          <Route 
+          exact 
+          path="/discover" 
+          render={() => (
+              <PostsPage message="No results found. Adjust the search keyword." />)}/>
           <Route
             exact
             path="/feed"
@@ -55,8 +62,6 @@ function App() {
             )}
           />
 
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
@@ -83,6 +88,6 @@ function App() {
       </Container>
     </div>
   );
-}
+};
 
 export default App;

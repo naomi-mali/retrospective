@@ -1,42 +1,61 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, Container } from "react-bootstrap";
-import {useHistory } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults"; 
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/ReportForm.module.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const Report = () => {
+
+/**
+ * report component for the report form.
+ *
+ * @return {JSX.Element} The report form component
+ */
+const Report = ({ userId, postId }) => {
   const [reportFormData, setReportFormData] = useState({
     category: "select",
     comment: "",
+    user: userId,
+    post: postId, 
   });
 
-  const { category, comment } = setReportFormData;
+  const { category, comment} = reportFormData;
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
-  const handleChange = (event) => {
+
+  /**
+   * A function that handles the change event.
+   *
+   * @param {Event} e - the event object
+   */
+
+  const handleChange = (e) => {
     setReportFormData({
       ...reportFormData,
-      [event.target.name]: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
+
+   /**
+   * A function to handle form submission asynchronously,
+   * then sends the user to the thank you page.
+   *
+   * @param {Event} event - the event object
+   * @return {Promise<void>} a promise that resolves when the function completes
+   */
+   
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axiosReq.post("/report/", reportFormData);
-      console.log("Report submitted:", response.data);
-      // Redirect to the report confirmation page
-      history.push("/feed");
+      await axiosReq.post(`report`, reportFormData);
+      history.push(`/thanks`);
     } catch (err) {
-      console.error("Error submitting report:", err.response || err);
-      if (err.response) {
-        console.error("Error details:", err.response.data);
-        setErrors(err.response.data);
-      }
+      // console.log(err);
+      setErrors(err.response?.data);
     }
   };
 

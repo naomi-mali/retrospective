@@ -1,0 +1,35 @@
+.thanksContainer {
+    text-align: center;
+    padding-top: 3rem;
+    max-width: 600px;
+    min-height: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .handwrittenHeader {
+    font-family: "Homemade Apple";
+    font-size: 2.5rem;
+    color: #006935;
+    margin-bottom: 1.5rem;
+  }
+  
+  .messageText {
+    font-size: 1.1rem;
+    color: #020202;
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+  
+  .linkText {
+    font-weight: bold;
+    color: #006935;
+  }
+  
+  .linkText:hover {
+    color: #0b1861;
+    text-decoration: underline;
+  }
+  
