@@ -17,7 +17,9 @@ const Post = (props) => {
     likes_count,
     like_id,
     title,
-    content,
+    description,
+    category,
+    location,
     image,
     updated_at,
     postPage,
@@ -109,7 +111,24 @@ const Post = (props) => {
           </div>
           {title && <div className={styles.PolaroidCaption}>{title}</div>}
         </Card.Body>
-        {content && <Card.Text>{content}</Card.Text>}
+        <Card.Body>
+  {category && postPage && (
+    <div className={styles.PostDetailWrapper}>
+      <span className={styles.Category}>#{category}</span>
+    </div>
+  )}
+  {description && postPage && (
+    <div className={styles.PostDetailWrapper}>
+      <span className={styles.Description}>{description}</span>
+    </div>
+  )}
+  {location && postPage && (
+    <div className={styles.PostDetailWrapper}>
+      <span className={styles.Location}>{location}</span>
+    </div>
+  )}
+</Card.Body>
+
         <div className={styles.PostBar}>
   {is_owner ? (
     <i className="far fa-heart" />

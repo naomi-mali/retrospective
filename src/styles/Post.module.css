@@ -125,3 +125,34 @@
   color: #007bff; 
 }
 
+
+.PostDetailWrapper {
+  margin-bottom: 10px; /* Add space between each detail */
+}
+
+.Category {
+  font-size: 1.2rem;
+  color: #0a0a0a;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Description {
+  font-size: 1.6rem;
+  color: #070707;
+  font-family: "Homemade Apple";
+  
+}
+
+.Location {
+  font-size: 1.6rem; /* Standard font size */
+  color: #f55145; /* Blue color for location to make it stand out */
+  font-family: "homemade apple", sans-serif;
+}
+
+/* Optional: Add a line break or divider for a cleaner look */
+.Card.Body {
+  padding-bottom: 20px; /* Increase bottom padding to avoid text sticking to edges */
+}
+
+
