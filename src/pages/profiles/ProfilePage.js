@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Asset from "../../components/Asset";
-
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router-dom"; // Import useHistory for navigation
 import { axiosReq } from "../../api/axiosDefaults";
-import {
-  useProfileData,
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext";
+import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Post from "../posts/Post";
-import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { fetchMoreData } from "../../utils/utils";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
@@ -31,6 +23,7 @@ function ProfilePage() {
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
+  const history = useHistory(); // Initialize history for navigation
 
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
@@ -62,7 +55,7 @@ function ProfilePage() {
   const mainProfile = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
-      <Row noGutters className="px-3 text-center">
+      <Row noGutters className="px-7 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -71,19 +64,19 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <h3 className="m-8">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
-              <div>posts</div>
+              <div style={{padding:"0 10px"}}>posts</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <div style={{padding:"0 10px"}}>followers</div>
             </Col>
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
-              <div>following</div>
+              <div style={{padding:"0 10px"}}>following</div>
             </Col>
           </Row>
         </Col>
@@ -118,9 +111,25 @@ function ProfilePage() {
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            <Post key={post.id} {...post} setPosts={setProfilePosts} />
-          ))}
+          children={
+            <div className={styles.PhotoAlbumContainer}>
+              <div className={styles.PhotoAlbum}>
+                {profilePosts.results.map((post) => (
+                  <div
+                    key={post.id}
+                    className={styles.PhotoContainer}
+                    onClick={() => history.push(`/posts/${post.id}`)} // Navigate to post page
+                  >
+                    <Image
+                      src={post.image} // Assuming the post has an 'image' field
+                      alt="post"
+                      className={styles.PostImage}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}

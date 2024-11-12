@@ -46,20 +46,20 @@
 
 /* Styling for the solid comment icon */
 .Comment {
-  color: #ff2a04; /* Red color for the comment icon */
+  color: #ff2a04;
 }
 
 .Comment:hover {
-  color: #0c0c0c; /* Dark color on hover */
+  color: #0c0c0c;
 }
 
 /* Styling for the outlined comment icon */
 .CommentOutline {
-  color: #ff2600; /* Lighter red color for the outline version */
+  color: #ff2600;
 }
 
 .CommentOutline:hover {
-  color: #000000; /* Dark color on hover for the outline icon */
+  color: #000000;
 }
 
 .Heart {
@@ -82,22 +82,21 @@
 
 /* Styling for the solid comment icon */
 .Comment {
-  color: #ff2a04; /* Red color for the comment icon */
+  color: #ff2a04;
 }
 
 .Comment:hover {
-  color: #0c0c0c; /* Dark color on hover */
+  color: #0c0c0c;
 }
 
 /* Styling for the outlined comment icon */
 .CommentOutline {
-  color: #ff2600; /* Lighter red color for the outline version */
+  color: #ff2600;
 }
 
 .CommentOutline:hover {
-  color: #000000; /* Dark color on hover for the outline icon */
+  color: #000000;
 }
-
 
 .PostDate {
   font-family: 'Homemade Apple', sans-serif;
@@ -127,7 +126,7 @@
 
 
 .PostDetailWrapper {
-  margin-bottom: 10px; /* Add space between each detail */
+  margin-bottom: 10px;
 }
 
 .Category {
@@ -152,7 +151,7 @@
 
 /* Optional: Add a line break or divider for a cleaner look */
 .Card.Body {
-  padding-bottom: 20px; /* Increase bottom padding to avoid text sticking to edges */
+  padding-bottom: 20px;
 }
 
 
