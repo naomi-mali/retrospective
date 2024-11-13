@@ -10,6 +10,12 @@ Retrospective goes beyond typical photo sharing by focusing on the joy of lookin
 ![tttttttttttttttttttttttttttt](https://github.com/user-attachments/assets/78994cff-6838-4fb2-8c75-ba6b2919c6de)
 
 
+- [Backend Repo](https://github.com/naomi-mali/api-retrospective)
+- [Frontend Repo](https://github.com/naomi-mali/retrospective)
+- [Frontend Deployed](https://retrospective-62d99ef7d5c6.herokuapp.com/)
+- [Backend Deployed](https://api-retrospective-3d1e13d99a31.herokuapp.com/)
+
+
 ## Key Features
 Retrospective offers a variety of features designed to enhance the user experience while capturing and sharing cherished memories. Here are some of the key features of the platform:
 
@@ -188,5 +194,67 @@ These enhancements are intended to enrich the social experience on Retrospective
 
 Stay tuned for updates as these features are integrated into Retrospective in the coming months. I look forward to continuing to improve the site and expanding its capabilities to create an even better experience for users!
 
+### 5. Surface
+
+- Color and themes were based on the five minute journal, using earthy calming colors and a mix of clean and handwritten fonts.
+
+The color palette was built using [Adobe Color](https://color.adobe.com/)
+
+Blue - #0B5BDB
+Red - #DE4633
+Yellow- #F6C76E
+Green - #006935
+Gray - #2C2C2E
+
+![Screenshot 2024-11-05 165039](https://github.com/user-attachments/assets/d905682f-37f3-48ce-a327-7f11a351a569)
+
+
+![Screenshot 2024-11-05 165718](https://github.com/user-attachments/assets/cc42b86a-c873-4af7-bc2a-58b0beead57f)
+ 
+[Google Fonts](https://fonts.google.com/) supplied the fonts
+- Montserrat
+- Homemade Apple
+
+#### Avatar  
+![Screenshot 2024-11-13 112530](https://github.com/user-attachments/assets/e86921ea-74d3-4b30-96ce-e94c56fd0faf)
+
+
+The avatar component is used throughout the site for users avatar and their username. It take the following props:
+- src: a link to the image url
+- height: default set to 45px
+- text: Text displayed in the image is not shown. Default is set to avatar
+
+#### MoreDropdown & ProfileEdit Dropdown
+
+![Screenshot 2024-11-13 112627](https://github.com/user-attachments/assets/5a619d51-1bb9-4f44-ac9c-83c694fd6f62)
+
+The components are shown as 3 dots when a user is able to make changed to something, like a post, comment or their profile. Clicking on the dots will show a dropdown menu with options for the user.
+
+MoreDropdown options:
+- Edit a post
+- Delete a post
+
+ProfileEditDropdown
+- Edit profile
+- Edit username
+- Change password
+
+#### Navbar
+
+The navbar is displayed on every page on the site, but will show different options for a logged in user to a non logged in user as well as on mobile and desktop devices.
+
+**Desktop - signed in**
+
+
+A signed in user will see the options to:
+- Visit the homepage via the logo
+- Add a post
+- Visit the discover page
+- Visit the feed page
+- Visit the liked page
+- Sign out
+- Visit their profile via the profile
+
+![Screenshot 2024-11-13 112825](https://github.com/user-attachments/assets/db391af2-3680-4005-a44b-abd60ceddb8d)
 
 
