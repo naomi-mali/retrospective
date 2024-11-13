@@ -15,7 +15,6 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import ReportForm from "./pages/posts/ReportForm";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Thanks from "./pages/contact/Thanks";
@@ -67,7 +66,6 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route path="/posts/:id/report" render={() => <ReportForm  />} />
           <Route render={() => <PageNotFound />} />
           <Route
             exact

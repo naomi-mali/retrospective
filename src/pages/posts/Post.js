@@ -36,11 +36,10 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       history.push(`/discover/`);
     } catch (err) {
-      console.log(err);
+     // console.log(err);
+
     }
   };
-
-  const handleReport = () => history.push(`/posts/${id}/report`);
 
   const handleLike = async () => {
     try {
@@ -54,7 +53,8 @@ const Post = (props) => {
         ),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
+
     }
   };
 
@@ -70,7 +70,7 @@ const Post = (props) => {
         ),
       }));
     } catch (err) {
-      console.log(err);
+
     }
   };
 
@@ -87,7 +87,6 @@ const Post = (props) => {
             {is_owner && postPage && (
               <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
             )}
-            {!is_owner && postPage && <MoreDropdown handleReport={handleReport} />}
           </div>
         </Media>
 
@@ -120,10 +119,9 @@ const Post = (props) => {
 
         <div className={styles.PostBar}>
           {is_owner ? (
-             <OverlayTrigger placement="top" overlay={<Tooltip>You cant't like your own post!</Tooltip>}>
-             <i className={`far fa-heart ${styles.HeartOutline}`} />
-           </OverlayTrigger>
-             
+            <OverlayTrigger placement="top" overlay={<Tooltip>You can't like your own post!</Tooltip>}>
+              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            </OverlayTrigger>
           ) : like_id ? (
             <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
@@ -139,15 +137,15 @@ const Post = (props) => {
           )}
           {likes_count}
           {currentUser ? (
-  <Link to={`/posts/${id}`}>
-    <i className={`far fa-comments ${styles.CommentOutline}`} />
-  </Link>
-) : (
-  <OverlayTrigger placement="top" overlay={<Tooltip>Log in to comment!</Tooltip>}>
-    <i className={`far fa-comments ${styles.CommentOutline}`} />
-  </OverlayTrigger>
-)}
-{comments_count}
+            <Link to={`/posts/${id}`}>
+              <i className={`far fa-comments ${styles.CommentOutline}`} />
+            </Link>
+          ) : (
+            <OverlayTrigger placement="top" overlay={<Tooltip>Log in to comment!</Tooltip>}>
+              <i className={`far fa-comments ${styles.CommentOutline}`} />
+            </OverlayTrigger>
+          )}
+          {comments_count}
         </div>
       </Card.Body>
     </Card>

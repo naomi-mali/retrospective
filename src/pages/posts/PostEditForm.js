@@ -39,7 +39,7 @@ function PostEditForm() {
 
         is_owner ? setPostData({  title, description, location, image, category }) : history.push("/");
       } catch (err) {
-        console.log(err);
+       // console.log(err);
       }
     };
 
@@ -80,7 +80,7 @@ function PostEditForm() {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      console.log(err);
+     // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -171,14 +171,15 @@ function PostEditForm() {
         </Alert>
       ))}
 
-      <Button
+<Button
       className={`${styles.Button} ${styles.ButtonCancel} 
       ${btnStyles.Button} ${btnStyles.Blue}`}
       onClick={() => history.goBack()}
       >
         Cancel
       </Button>
-      <Button className={`${btnStyles.Button} {btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.LargeButton}`}
+  type="submit">
         Save
       </Button>
     </div>

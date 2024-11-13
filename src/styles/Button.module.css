@@ -70,7 +70,15 @@
   }
   
   .Bright {
-    background-color: #69003d;
+    background-color: #741d03;
     color: #ffffff;
   }
   
+  .LargeButton {
+    padding: 1opx 18px; /* Adjust padding as desired */
+    font-size: 0.8rem; /* Increase font size */
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: blue;
+  }
