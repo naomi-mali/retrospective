@@ -19,6 +19,7 @@ import ReportForm from "./pages/posts/ReportForm";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Thanks from "./pages/contact/Thanks";
+import PageNotFound from "./components/PageNotFound";
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route path="/posts/:id/report" render={() => <ReportForm  />} />
+          <Route render={() => <PageNotFound />} />
           <Route
             exact
             path="/profiles/:id/edit/username"
@@ -82,8 +84,6 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-
-          <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
     </div>
