@@ -75,10 +75,28 @@
   }
   
   .LargeButton {
-    padding: 1opx 18px; /* Adjust padding as desired */
+    padding: 10px 18px; /* Adjust padding as desired */
     font-size: 0.8rem; /* Increase font size */
     border-radius: 10px;
     font-weight: bold;
     text-transform: uppercase;
     background-color: blue;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
   }
+  
+  .LargeButton:hover {
+    background-color: darkblue; /* Change background color on hover */
+    transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
+  }
+  
+  .ButtonCancel {
+    background-color: red;
+    color: white; /* Ensures the text is visible */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  }
+  
+  .ButtonCancel:hover {
+    background-color: darkred; /* Change background color on hover */
+    transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
+  }
+  

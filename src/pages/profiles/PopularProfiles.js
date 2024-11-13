@@ -10,12 +10,12 @@ const PopularProfiles = ({ mobile }) => {
 
   return (
     <Container
-    style={{ maxWidth: "470px" }}
-    className={`${appStyles.Content} ${mobile && "d-lg-none text-center mb-3"}`}
+      style={{ maxWidth: "470px" }}
+      className={`${appStyles.Content} ${mobile && "d-lg-none text-center mb-3"}`}
     >
       {popularProfiles.results.length ? (
         <>
-          <p>Who to follow.</p>
+          <p style={{ color: "black", fontSize: "1.2em" }}>Who to follow </p> {/* Black font color for "Who to follow" */}
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (

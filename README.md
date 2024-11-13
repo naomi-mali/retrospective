@@ -243,7 +243,7 @@ ProfileEditDropdown
 
 The navbar is displayed on every page on the site, but will show different options for a logged in user to a non logged in user as well as on mobile and desktop devices.
 
-**Desktop - signed in**
+## Desktop - signed in
 
 
 A signed in user will see the options to:
@@ -257,4 +257,90 @@ A signed in user will see the options to:
 
 ![Screenshot 2024-11-13 112825](https://github.com/user-attachments/assets/db391af2-3680-4005-a44b-abd60ceddb8d)
 
+## Desktop - signed out
+
+![aaaaaaaaa](https://github.com/user-attachments/assets/29060c35-d554-4829-b1df-0d1354355e5e)
+
+A user who is not signed in will see the following options:
+- Visit the homepage via the logo
+- Visit the discover page
+- Sign in
+- Sign up
+
+Mobile - singed in
+
+Users on a mobile device will have the same options but via a hamburger menu
+
+
+![Screenshot 2024-11-13 112825](https://github.com/user-attachments/assets/256277fd-f269-4c93-a759-52971bd2ac21)
+![Screenshot 2024-11-13 113254](https://github.com/user-attachments/assets/7539e379-553c-4720-bcdd-277eb323d256)
+![Screenshot 2024-11-13 113330](https://github.com/user-attachments/assets/6d6379b9-7d0e-4444-9989-771fabc3ab14)
+![Screenshot 2024-11-13 113422](https://github.com/user-attachments/assets/9863c728-64af-430a-8eb9-bbfeec72b21d)
+![Screenshot 2024-11-13 113448](https://github.com/user-attachments/assets/7af63294-cabc-4692-b0ad-afc94441f9a2)
+![Screenshot 2024-11-13 113508](https://github.com/user-attachments/assets/73136859-ce58-420e-b046-4e9f8a3e23fb)
+![Screenshot 2024-11-13 113525](https://github.com/user-attachments/assets/47c526e7-3205-4b0d-97bf-3a5ed53a659e)
+![Screenshot 2024-11-13 113906](https://github.com/user-attachments/assets/699cc5ca-53eb-49e9-83c3-53ac2972b146)
+![Screenshot 2024-11-13 113952](https://github.com/user-attachments/assets/0d8ab5b4-7df5-4917-8834-ffb8bd370d95)
+![Screenshot 2024-11-13 114036](https://github.com/user-attachments/assets/713dbddc-cf37-47fd-9939-2fbf5239d3af)
+![Screenshot 2024-11-13 114050](https://github.com/user-attachments/assets/e2aa0fb3-c539-41f8-9a7a-883bf86cba36)
+![Screenshot 2024-11-13 115154](https://github.com/user-attachments/assets/e2dfde71-8a6b-4e9b-9c5c-984db6e9bc2f)
+![Screenshot 2024-11-13 115234](https://github.com/user-attachments/assets/4837b81f-9514-4ab5-8b08-e91d5cb3f0af)
+![Screenshot 2024-11-13 115250](https://github.com/user-attachments/assets/2d60f823-879e-4f3d-a41d-8457f0ac1085)
+![Screenshot 2024-11-13 115324](https://github.com/user-attachments/assets/1413df32-39a1-4d67-930c-c8e42a817ed4)
+![Screenshot 2024-11-13 115353](https://github.com/user-attachments/assets/565a832a-b92c-42b8-8963-a13265877684)
+
+### Frameworks, Libraries & Tools
+
+- [Django Rest Framework](https://www.django-rest-framework.org/) - Backend API
+- [React](https://react.dev/) - Library for JS
+- [React Bootstrap](https://react-bootstrap-v4.netlify.app/) - CSS libraby
+- [Canva](https://www.canva.com/en_gb/) - Wire-frame and design
+- [GitPod](https://gitpod.io/workspaces) - Virtual IDE
+- [GitHub](https://github.com/) - Repo hosting
+- [Heroku](https://dashboard.heroku.com/apps) - Deployment
+- [Font Awesome](https://fontawesome.com/) - Icons
+- [Google Fonts](https://fonts.google.com/) - Fonts
+- [LucidChart](https://lucid.app/) - Development of flowchart
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools) - Development and bug fixing
+- [Favicon.io](https://favicon.io/favicon-converter/) - Favicon conversion
+- [React Router](https://v5.reactrouter.com/web/guides/quick-start) - Dynamic routing
+- [React Infinite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) - for instant loading and infinite scrolling
+- [Axios](https://github.com/axios/axios) - Promise-based HTTP requests
+- [Adobe Color](https://color.adobe.com/) - Color Palette
+- [Am I Responsive?](https://ui.dev/amiresponsive) - Multi-device mockup
+
+Validation:
+- [WC3 Validator](https://validator.w3.org/) - validate the html
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) - validate the css
+- [ESLint](https://eslint.org/) - validate JS code
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - validate performance, accessibility, best practice and SEO
+
+
+
+## Resources
+
+- Code Institute Moments walkthrough
+- React Bootstrap Docs
+- Stack Overflow
+- Slack Community
+
+### Create a new app in Heroku.
+
+- Go to `Settings` and ensure that heroku/nodejs buildpack is present. If it is not, click on `Add Buildpack`, select `nodejs` and save changes.
+- Click on the `Deploy` tab and go to `Deployment Method`. Click on `GitHub`.
+- Go to `App connected to GitHub` and search for the relevant repository. Select that repository and click `Connect`.
+- Go to `Manual Deploy` section and click `Deploy Branch`. Click on `build logs` to monitor build and ensure deployment is successful. Build is complete when log states `Build succeeded!`.
+- Click `Open App` button to view newly deployed app.
+## Forking the GitHub Repository
+
+- Go to the GitHub repository
+- Click on `Fork` button in top right corner
+- You will then have a copy of the repository in your own GitHub account.
+
+### Images
+
+All images used and designs were from or created with [Canva](https://www.canva.com/en_gb/)
+
+### Code
+This project was inspired by the Code Institute moments walkthrough project. I have modified the styles and code and functionality to fit the needs of the project. Further changes are planned and can be read about further in the [future features](#future-features) section.
 

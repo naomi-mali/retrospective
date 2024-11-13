@@ -167,12 +167,15 @@ function PostCreateForm() {
       </Form.Group>
 
       <div className={styles.ButtonContainer}>
-          <Button
-            className={`${styles.Button} ${styles.ButtonCancel}`}
-            onClick={() => history.goBack()}
-          >
-            Cancel
-          </Button>
+      <Button 
+      className={`${styles.Button} ${styles.ButtonCancel}`}
+      style={{ backgroundColor: 'red', color: 'white' }} // Inline style for red color
+      onClick={() => history.goBack()}>
+        Cancel
+        </Button>
+      
+      
+
           <Button
             className={`${styles.Button} ${styles.ButtonBlue}`}
             type="submit"
