@@ -6,5 +6,20 @@
   
   .Date {
     font-weight: lighter;
-    color: #8b8989;
+    color: #353232;
   }
+
+  .CommentContent {
+    color: black;
+    font-size: 1em;
+  }
+  
+  .Owner {
+    font-weight: bold;
+  }
+  
+  .Date {
+    font-size: 1em;
+    color: rgb(66, 63, 63);
+  }
+  
