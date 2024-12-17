@@ -78,7 +78,7 @@ const UsernameForm = () => {
               cancel
             </Button>
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Red}`}
               type="submit"
             >
               save

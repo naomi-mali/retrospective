@@ -8,8 +8,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/Contact.module.css";
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
-const Contact = () => {
+function Contact() {
   const [contactFormData, setContactFormData] = useState({
     fname: "",
     lname: "",
@@ -53,8 +54,7 @@ const Contact = () => {
                 name="fname"
                 value={fname}
                 onChange={handleChange}
-                className={styles.inputField}
-              />
+                className={styles.inputField} />
             </Form.Group>
             {errors.fname?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -69,8 +69,7 @@ const Contact = () => {
                 name="lname"
                 value={lname}
                 onChange={handleChange}
-                className={styles.inputField}
-              />
+                className={styles.inputField} />
             </Form.Group>
             {errors.lname?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -85,8 +84,7 @@ const Contact = () => {
                 name="email"
                 value={email}
                 onChange={handleChange}
-                className={styles.inputField}
-              />
+                className={styles.inputField} />
             </Form.Group>
             {errors.email?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -102,8 +100,7 @@ const Contact = () => {
                 value={content}
                 onChange={handleChange}
                 rows={3}
-                className={styles.inputField}
-              />
+                className={styles.inputField} />
             </Form.Group>
             {errors.content?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -111,7 +108,10 @@ const Contact = () => {
               </Alert>
             ))}
 
-            <button type="submit" className={styles.submitButton}>
+            <button
+              type="submit"
+              className={`${styles.submitButton} ${btnStyles.Button}`}
+            >
               Submit
             </button>
           </Form>
@@ -119,6 +119,6 @@ const Contact = () => {
       </Col>
     </Row>
   );
-};
+}
 
 export default Contact;

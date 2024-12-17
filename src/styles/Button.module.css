@@ -36,7 +36,7 @@
   .Blue,
   .BlueOutline:hover,
   .Bright:hover {
-    background-color:#af1010;
+    background-color:#f30d0d;
     color: #ffffff;
     border-radius: 5px;
     padding: 12px 25px;
@@ -47,7 +47,27 @@
   .Blue:hover {
     /* border: 1px solid #2142b2; */
     background-color: #ffffff;
-    color:#006935;
+    color:#f80909;
+    font-weight: bolder;
+    
+  }
+
+  .Red,
+  .RedOutline:hover,
+  .Bright:hover {
+    background-color:#1daf10;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 0.8rem;
+  }
+  
+  .RedOutline,
+  .Red:hover {
+    /* border: 1px solid #2142b2; */
+    background-color: #ffffff;
+    color:#2cbe1f;
+    font-weight: bolder;
     
   }
   
@@ -80,12 +100,12 @@
     border-radius: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: blue;
+    background-color: rgb(76, 0, 255);
     transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
   }
   
   .LargeButton:hover {
-    background-color: darkblue; /* Change background color on hover */
+    background-color: rgb(10, 11, 92); /* Change background color on hover */
     transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
   }
   
@@ -98,5 +118,43 @@
   .ButtonCancel:hover {
     background-color: darkred; /* Change background color on hover */
     transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
+  }
+
+  .ButtonCreate {
+    background-color: #158891;
+  }
+  
+  .ButtonCreate:hover {
+    background-color: #084b50;
+    transform: scale(1.05);
+  }
+
+  .submitButton {
+    padding: 10px 20px; /* Space inside the button */
+    font-size: 16px; /* Button text size */
+    font-weight: bold; /* Make text bold */
+    color: #ffffff; /* White text */
+    background-color: #007bff; /* Blue background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .submitButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .submitButton:active {
+    background-color: #004085; /* Even darker blue on active */
+    transform: scale(0.98); /* Slightly shrink when clicked */
+  }
+  
+  .submitButton:disabled {
+    background-color: #6c757d; /* Gray background when disabled */
+    color: #d6d6d6; /* Light gray text for disabled */
+    cursor: not-allowed; /* Disabled cursor */
+    opacity: 0.65; /* Slightly faded look */
   }
   

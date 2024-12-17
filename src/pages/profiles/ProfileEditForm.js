@@ -107,7 +107,7 @@ const ProfileEditForm = () => {
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button} ${btnStyles.Red}`} type="submit">
         save
       </Button>
     </>

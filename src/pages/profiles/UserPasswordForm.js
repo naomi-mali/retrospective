@@ -95,7 +95,7 @@ const UserPasswordForm = () => {
             </Button>
             <Button
               type="submit"
-              className={`${btnStyles.Button} ${btnStyles.Blue}`}
+              className={`${btnStyles.Button} ${btnStyles.Red}`}
             >
               save
             </Button>

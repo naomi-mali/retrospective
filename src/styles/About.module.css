@@ -1,81 +1,80 @@
 .Background {
-    background-image: url('https://res.cloudinary.com/dbaadqgfp/image/upload/v1731368769/backg_h5uz7p.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 81vh;
-    min-width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-image: url('https://res.cloudinary.com/dbaadqgfp/image/upload/v1731368769/backg_h5uz7p.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 81vh;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .cardBackground {
-    background-color: #fffffff3;
-  }
-
-  
-  
-  .Heading1 {
-    font-family: "Homemade Apple",sans-serif;
-    color: #006935;
-    font-size: 2.5rem;
-    text-align: center;
-  }
-
-  .Heading2 {
-    padding-top: 25px;
-    font-size: 1.3rem;
-    text-align: center;
-    color: #DE4633;
-    font-family: "Montserrat", sans-serif;
-  }
-  
-  .Heading3{
-    font-size: 1.3rem;
-    color: black;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .Link {
-    color:  #4747e7;
-    text-align: center;
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
-  
-  
-  .Link:hover {
-    text-decoration: underline; 
-    transition: color 0.3s ease;
-    font-weight: 400;
-  }
-  
+.cardBackground {
+  background-color: #fffffff3;
+}
 
 
-  .Button {
-    background-color: #006935;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .Button:hover {
-    background-color: #04274d; /* Darker blue on hover */
-  }
-  
-  .Secondary {
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .Secondary:hover {
-    background-color: #307535; /* Darker grey on hover */
-  }
-  
-  
+
+.Heading1 {
+  font-family: "Homemade Apple",sans-serif;
+  color: #006935;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.Heading2 {
+  padding-top: 25px;
+  font-size: 1.3rem;
+  text-align: center;
+  color: #DE4633;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Heading3{
+  font-size: 1.3rem;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Link {
+  color:  #4747e7;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+
+.Link:hover {
+  text-decoration: underline; 
+  transition: color 0.3s ease;
+  font-weight: 400;
+}
+
+
+
+.Button {
+  background-color: #006935;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.Button:hover {
+  background-color: #04274d; /* Darker blue on hover */
+}
+
+.Secondary {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.Secondary:hover {
+  background-color: #307535; /* Darker grey on hover */
+}
+
