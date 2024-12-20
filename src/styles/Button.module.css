@@ -45,7 +45,6 @@
   
   .BlueOutline,
   .Blue:hover {
-    /* border: 1px solid #2142b2; */
     background-color: #ffffff;
     color:#f80909;
     font-weight: bolder;
@@ -64,7 +63,6 @@
   
   .RedOutline,
   .Red:hover {
-    /* border: 1px solid #2142b2; */
     background-color: #ffffff;
     color:#2cbe1f;
     font-weight: bolder;
@@ -73,20 +71,16 @@
   
   .Black,
   .BlackOutline:hover {
-    /* background-color: #242a3d;
-    color: white; */
-    background-color: #ffffff;
-    color: rgb(3, 97, 19);
+    background-color: #292e2c;
+    color: rgb(246, 248, 246);
     border-radius: 5px
   }
   
   .Black:hover,
   .BlackOutline {
-    /* background-color: #dadadf;
-    color: #242a3d;
-    border-color: #242a3d; */
-    background-color: aliceblue;
-    color: #283d24;
+    background-color: rgb(71, 129, 180);
+    color: #ffffff;
+    border-radius: 5px;
   }
   
   .Bright {
@@ -95,29 +89,29 @@
   }
   
   .LargeButton {
-    padding: 10px 18px; /* Adjust padding as desired */
-    font-size: 0.8rem; /* Increase font size */
+    padding: 10px 18px;
+    font-size: 0.8rem;
     border-radius: 10px;
     font-weight: bold;
     text-transform: uppercase;
     background-color: rgb(76, 0, 255);
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, transform 0.3s;
   }
   
   .LargeButton:hover {
-    background-color: rgb(10, 11, 92); /* Change background color on hover */
-    transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
+    background-color: rgb(10, 11, 92);
+    transform: scale(1.05);
   }
   
   .ButtonCancel {
     background-color: red;
-    color: white; /* Ensures the text is visible */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
   }
   
   .ButtonCancel:hover {
-    background-color: darkred; /* Change background color on hover */
-    transform: scale(1.05); /* Optional: Slightly enlarge button on hover */
+    background-color: darkred;
+    transform: scale(1.05);
   }
 
   .ButtonCreate {
@@ -130,31 +124,31 @@
   }
 
   .submitButton {
-    padding: 10px 20px; /* Space inside the button */
-    font-size: 16px; /* Button text size */
-    font-weight: bold; /* Make text bold */
-    color: #ffffff; /* White text */
-    background-color: #007bff; /* Blue background */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth effects */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .submitButton:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3;
   }
   
   .submitButton:active {
-    background-color: #004085; /* Even darker blue on active */
-    transform: scale(0.98); /* Slightly shrink when clicked */
+    background-color: #004085;
+    transform: scale(0.98);
   }
   
   .submitButton:disabled {
-    background-color: #6c757d; /* Gray background when disabled */
-    color: #d6d6d6; /* Light gray text for disabled */
-    cursor: not-allowed; /* Disabled cursor */
-    opacity: 0.65; /* Slightly faded look */
+    background-color: #6c757d;
+    color: #d6d6d6;
+    cursor: not-allowed;
+    opacity: 0.65;
   }
   

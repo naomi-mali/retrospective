@@ -19,38 +19,52 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { OverlayTrigger, Tooltip } from "react-bootstrap"; // Ensure you have the correct imports
 
+/**
+ * PostPage component that handles displaying a single post with its comments.
+ * It also includes functionality for users to create and view comments on the post.
+ *
+ * @returns {JSX.Element} A page displaying a post, comments, and a form to add a comment.
+ */
 function PostPage() {
-  const { id } = useParams();
-  const [post, setPost] = useState({ results: [] });
-  const [comments, setComments] = useState({ results: [] });
+  const { id } = useParams(); // Extract post ID from the URL parameters
+  const [post, setPost] = useState({ results: [] }); // State for storing the post data
+  const [comments, setComments] = useState({ results: [] }); // State for storing the comments of the post
 
-  const currentUser = useCurrentUser();
-  const profile_image = currentUser?.profile_image;
+  const currentUser = useCurrentUser(); // Get the current logged-in user's details
+  const profile_image = currentUser?.profile_image; // Profile image of the current user, if available
 
+  /**
+   * useEffect hook to fetch the post and comments when the component mounts
+   * It runs every time the `id` parameter in the URL changes.
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
+        // Fetch the post and comments in parallel
         const [{ data: post }, { data: comments }] = await Promise.all([
-          axiosReq.get(`/posts/${id}`),
-          axiosReq.get(`/comments/?post=${id}`),
+          axiosReq.get(`/posts/${id}`), // Fetch post data by ID
+          axiosReq.get(`/comments/?post=${id}`), // Fetch comments for the post
         ]);
-        setPost({ results: [post] });
-        setComments(comments);
+        setPost({ results: [post] }); // Set the post data
+        setComments(comments); // Set the comments data
       } catch (err) {
         // Handle errors here if needed
       }
     };
 
-    handleMount();
-  }, [id]);
+    handleMount(); // Call the function to fetch the post and comments
+  }, [id]); // Re-run the effect whenever the `id` changes
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* Display popular profiles in mobile view */}
         <PopularProfiles mobile />
+        {/* Display the Post component for the fetched post */}
         <Post {...post.results[0]} setPosts={setPost} postPage />
 
         <Container className={appStyles.Content}>
+          {/* Show the comment creation form if the user is logged in */}
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -60,9 +74,10 @@ function PostPage() {
               setComments={setComments}
             />
           ) : comments.results.length ? (
-            "Comments"
+            "Comments" // If there are no comments, just display a message
           ) : null}
 
+          {/* Render the comments section with infinite scroll */}
           {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
@@ -72,17 +87,18 @@ function PostPage() {
                   setPost={setPost}
                   setComments={setComments}
                 />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
+              ))} 
+              dataLength={comments.results.length} // Length of the comments array
+              loader={<Asset spinner />} // Loader while fetching more data
+              hasMore={!!comments.next} // Check if there are more comments to load
+              next={() => fetchMoreData(comments, setComments)} // Function to load more comments
             />
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
+            <span>No comments yet, be the first to comment!</span> // Message if no comments exist yet
           ) : (
             <span>
               No comments... yet.{" "}
+              {/* Display a login link if the user is not logged in */}
               <OverlayTrigger
                 placement="top"
                 overlay={<Tooltip>Log in to comment!</Tooltip>}
@@ -97,6 +113,7 @@ function PostPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+        {/* Display popular profiles in larger view */}
         <PopularProfiles />
       </Col>
     </Row>

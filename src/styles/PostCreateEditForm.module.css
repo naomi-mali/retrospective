@@ -15,7 +15,7 @@ input[type="file"] {
 }
 
 .LargeScreenTitle {
-  margin-right: 20rem;  /* margin-right for larger screens */
+  margin-right: 20rem;
   font-family: "Homemade Apple", sans-serif;
   color: #ffffff;
   font-weight: bold;
@@ -28,13 +28,11 @@ input[type="file"] {
   padding: 1rem;
 }
 
-/* Style for individual form groups */
 .FormGroup {
   margin-bottom: 1.5rem;
   text-align: left;
 }
 
-/* Label styling */
 .FormLabel {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
@@ -42,7 +40,6 @@ input[type="file"] {
   margin-bottom: 0.5rem;
 }
 
-/* Input field styling */
 .FormInput {
   width: 100%;
   padding: 0.8rem;
@@ -63,7 +60,6 @@ input[type="file"] {
   background-color: #ffffff;
 }
 
-/* Category dropdown styling */
 .SelectCategory {
   width: 100%;
   padding: 0.8rem;
@@ -73,7 +69,6 @@ input[type="file"] {
   background-color: #ffffff;
 }
 
-/* Styling for the alert messages */
 .AlertMessage {
   margin-top: 1rem;
   font-size: 1rem;
@@ -81,7 +76,6 @@ input[type="file"] {
   font-weight: bold;
 }
 
-/* Button container for layout */
 .ButtonContainer {
   display: flex;
   justify-content: center;
@@ -89,7 +83,6 @@ input[type="file"] {
   margin-top: 1.5rem;
 }
 
-/* Base button styling */
 .Button {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
@@ -99,33 +92,32 @@ input[type="file"] {
   transition: background-color 0.3s ease;
 }
 
-/* Blue button */
 .ButtonBlue {
-  background-color: #1dd836; /* Blue color */
+  background-color: #1dd836;
   color: white;
   border: none;
 }
 
 .ButtonBlue:hover {
-  background-color: #1dd836; /* Darker blue on hover */
+  background-color: #1dd836;
 }
 
-/* Cancel button styles */
+
 .ButtonCancel {
-  background-color: #1dd836; /* Red color for cancel */
+  background-color: #1dd836;
   color: white;
   border: none;
 }
 
 .ButtonCancel:hover {
-  background-color: #ef4444; /* Darker red on hover */
+  background-color: #ef4444;
 }
 
-/* Optional: Add a specific margin or padding for positioning buttons */
+
 .ButtonContainer {
   display: flex;
-  gap: 1rem; /* Adds space between buttons */
-  justify-content: center; /* Centers buttons */
+  gap: 1rem;
+  justify-content: center;
 }
 
 
@@ -138,14 +130,14 @@ input[type="file"] {
   }
 
   .FormContainer {
-    max-width: 100%; /* Full width for mobile */
-    padding: 0.5rem; /* Minimal padding to avoid overflow */
-    overflow: hidden; /* Prevents overflow issues */
+    max-width: 100%;
+    padding: 0.5rem;
+    overflow: hidden;
   }
 
   .Input {
-    width: 100%; /* Full width for input fields */
-    box-sizing: border-box; /* Ensures padding doesn’t overflow */
+    width: 100%;
+    box-sizing: border-box;
   }
   .LargeScreenTitle {
     margin-right: 0;

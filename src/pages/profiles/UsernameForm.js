@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * UsernameForm component for allowing users to change their username.
+ * Redirects to homepage if a user tries to edit someone else's profile.
+ * 
+ * @return {JSX.Element} The JSX for the UsernameForm component
+ */
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -35,19 +38,18 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  /**
+   * Handles form submission to update the username.
+   *
+   * @param {object} event - The form submission event
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosRes.put("/dj-rest-auth/user/", {
-        username,
-      });
-      setCurrentUser((prevUser) => ({
-        ...prevUser,
-        username,
-      }));
+      await axiosRes.put("/dj-rest-auth/user/", { username });
+      setCurrentUser((prevUser) => ({ ...prevUser, username }));
       history.goBack();
     } catch (err) {
-     // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -68,7 +70,7 @@ const UsernameForm = () => {
             </Form.Group>
             {errors?.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
-                {message}
+                {message} {/* Display error messages */}
               </Alert>
             ))}
             <Button

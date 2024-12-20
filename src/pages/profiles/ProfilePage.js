@@ -8,7 +8,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams, useHistory } from "react-router-dom"; // Import useHistory for navigation
+import { useParams, useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
@@ -17,28 +17,36 @@ import NoResults from "../../assets/no-results.png";
 import { fetchMoreData } from "../../utils/utils";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+/**
+ * Renders the Profile Page component displaying user details and their posts.
+ *
+ * @return {JSX.Element} The rendered Profile Page component.
+ */
 function ProfilePage() {
+  // State to manage whether data has loaded and to store profile posts
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const history = useHistory(); // Initialize history for navigation
+  const history = useHistory();
 
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
+  // Destructure the first profile result for display
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+  // Fetch profile data and posts when the component mounts or the ID changes
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}`),
-          ]);
+        const [{ data: pageProfile }, { data: profilePosts }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+        ]);
+        // Update profile and posts state
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -46,16 +54,19 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setHasLoaded(true);
       } catch (err) {
-      // console.log(err);
+        // Handle errors (e.g., log errors)
       }
     };
     fetchData();
   }, [id, setProfileData]);
 
+  // Main profile information component
   const mainProfile = (
     <>
+      {/* Edit dropdown for profile owner */}
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-7 text-center">
+        {/* Profile image */}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -63,23 +74,28 @@ function ProfilePage() {
             src={profile?.image}
           />
         </Col>
+        {/* Username and stats */}
         <Col lg={6}>
           <h3 className="m-8">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
+            {/* Posts count */}
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
-              <div style={{padding:"0 10px"}}>posts</div>
+              <div style={{ padding: "0 10px" }}>posts</div>
             </Col>
+            {/* Followers count */}
             <Col xs={3} className="my-2">
               <div>{profile?.followers_count}</div>
-              <div style={{padding:"0 10px"}}>followers</div>
+              <div style={{ padding: "0 10px" }}>followers</div>
             </Col>
+            {/* Following count */}
             <Col xs={3} className="my-2">
               <div>{profile?.following_count}</div>
-              <div style={{padding:"0 10px"}}>following</div>
+              <div style={{ padding: "0 10px" }}>following</div>
             </Col>
           </Row>
         </Col>
+        {/* Follow/unfollow buttons */}
         <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
@@ -99,18 +115,18 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
+        {/* Profile content and bio */}
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
         {profile?.bio && (
           <Col lg={12} className="p-3">
-            <div className={styles.BioContainer}>
-              {profile.bio}
-            </div>
+            <div className={styles.BioContainer}>{profile.bio}</div>
           </Col>
         )}
       </Row>
     </>
   );
 
+  // Main posts component
   const mainProfilePosts = (
     <>
       <hr />
@@ -125,10 +141,10 @@ function ProfilePage() {
                   <div
                     key={post.id}
                     className={styles.PhotoContainer}
-                    onClick={() => history.push(`/posts/${post.id}`)} // Navigate to post page
+                    onClick={() => history.push(`/posts/${post.id}`)}
                   >
                     <Image
-                      src={post.image} // Assuming the post has an 'image' field
+                      src={post.image}
                       alt="post"
                       className={styles.PostImage}
                     />
@@ -151,8 +167,10 @@ function ProfilePage() {
     </>
   );
 
+  // Render the profile page layout
   return (
     <Row>
+      {/* Mobile popular profiles */}
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
         <Container className={appStyles.Content}>
@@ -166,6 +184,7 @@ function ProfilePage() {
           )}
         </Container>
       </Col>
+      {/* Desktop popular profiles */}
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
       </Col>

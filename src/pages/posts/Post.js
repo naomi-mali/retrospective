@@ -7,6 +7,12 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 
+/**
+ * Component for displaying a single post with options for interaction.
+ *
+ * @param {Object} props - Post data including id, owner, profile details, likes, comments, and more
+ * @return {JSX.Element} A card displaying the post with interactive elements
+ */
 const Post = (props) => {
   const {
     id,
@@ -30,17 +36,25 @@ const Post = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  /**
+   * Handles redirecting to the edit post page.
+   */
   const handleEdit = () => history.push(`/posts/${id}/edit`);
+
+  /**
+   * Handles deleting a post and redirects to the discover page.
+   */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
       history.push(`/discover/`);
     } catch (err) {
-     // console.log(err);
-
     }
   };
 
+  /**
+   * Handles liking a post and updates the post's like count.
+   */
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
@@ -53,11 +67,12 @@ const Post = (props) => {
         ),
       }));
     } catch (err) {
-      //console.log(err);
-
     }
   };
 
+  /**
+   * Handles unliking a post and updates the post's like count.
+   */
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -70,7 +85,6 @@ const Post = (props) => {
         ),
       }));
     } catch (err) {
-
     }
   };
 
@@ -78,10 +92,13 @@ const Post = (props) => {
     <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
+          {/* Displaying owner's profile and name */}
           <Link to={`/profiles/${profile_id}`} className={styles.OwnerName}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
+
+          {/* Displaying post update time and options for the owner */}
           <div className="d-flex align-items-center">
             <span className={styles.PostDate}>{updated_at}</span>
             {is_owner && postPage && (
@@ -91,15 +108,19 @@ const Post = (props) => {
         </Media>
 
         <Card.Body>
+          {/* Displaying post image */}
           <div className={styles.PostImageWrapper}>
             <Link to={`/posts/${id}`}>
               <Card.Img src={image} alt={title} />
             </Link>
           </div>
+
+          {/* Displaying post title if available */}
           {title && <div className={styles.PolaroidCaption}>{title}</div>}
         </Card.Body>
 
         <Card.Body>
+          {/* Displaying post details like category, description, and location */}
           {category && postPage && (
             <div className={styles.PostDetailWrapper}>
               <span className={styles.Category}>#{category}</span>
@@ -117,7 +138,9 @@ const Post = (props) => {
           )}
         </Card.Body>
 
+        {/* Post interaction bar with like and comment actions */}
         <div className={styles.PostBar}>
+          {/* Handling like and unlike actions */}
           {is_owner ? (
             <OverlayTrigger placement="top" overlay={<Tooltip>You can't like your own post!</Tooltip>}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
@@ -136,6 +159,8 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
+
+          {/* Handling comments section */}
           {currentUser ? (
             <Link to={`/posts/${id}`}>
               <i className={`far fa-comments ${styles.CommentOutline}`} />

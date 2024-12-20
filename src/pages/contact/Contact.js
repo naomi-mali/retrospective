@@ -10,7 +10,13 @@ import styles from "../../styles/Contact.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
+/**
+ * Contact form component to handle feedback submission.
+ *
+ * @return {JSX.Element} The contact form for users to submit feedback.
+ */
 function Contact() {
+  // State to manage form data and errors
   const [contactFormData, setContactFormData] = useState({
     fname: "",
     lname: "",
@@ -19,8 +25,15 @@ function Contact() {
   });
   const { fname, lname, email, content } = contactFormData;
   const [errors, setErrors] = useState({});
+
+  // History object for redirection
   const history = useHistory();
 
+  /**
+   * Handle input changes in the form fields.
+   *
+   * @param {Event} e - The event object
+   */
   const handleChange = (e) => {
     setContactFormData({
       ...contactFormData,
@@ -28,12 +41,19 @@ function Contact() {
     });
   };
 
+  /**
+   * Handle form submission and send data to the backend.
+   *
+   * @param {Event} event - The submit event
+   */
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
     try {
+      // Send data to backend and redirect to thank you page
       await axiosReq.post("/feedback/", contactFormData);
-      history.push("/thanks");
+      history.push("/thanks"); // Redirect on successful submission
     } catch (err) {
+      // Set validation errors if the request fails
       setErrors(err.response?.data);
     }
   };
@@ -47,6 +67,7 @@ function Contact() {
           </h1>
           <p className={styles.subText}>Let us know how we can help.</p>
           <Form onSubmit={handleSubmit}>
+            {/* First Name Field */}
             <Form.Group>
               <Form.Control
                 placeholder="First name"
@@ -54,7 +75,8 @@ function Contact() {
                 name="fname"
                 value={fname}
                 onChange={handleChange}
-                className={styles.inputField} />
+                className={styles.inputField}
+              />
             </Form.Group>
             {errors.fname?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -62,6 +84,7 @@ function Contact() {
               </Alert>
             ))}
 
+            {/* Last Name Field */}
             <Form.Group>
               <Form.Control
                 placeholder="Last name"
@@ -69,7 +92,8 @@ function Contact() {
                 name="lname"
                 value={lname}
                 onChange={handleChange}
-                className={styles.inputField} />
+                className={styles.inputField}
+              />
             </Form.Group>
             {errors.lname?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -77,6 +101,7 @@ function Contact() {
               </Alert>
             ))}
 
+            {/* Email Field */}
             <Form.Group>
               <Form.Control
                 placeholder="Email"
@@ -84,7 +109,8 @@ function Contact() {
                 name="email"
                 value={email}
                 onChange={handleChange}
-                className={styles.inputField} />
+                className={styles.inputField}
+              />
             </Form.Group>
             {errors.email?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -92,6 +118,7 @@ function Contact() {
               </Alert>
             ))}
 
+            {/* Message Field */}
             <Form.Group>
               <Form.Control
                 placeholder="Your message..."
@@ -100,7 +127,8 @@ function Contact() {
                 value={content}
                 onChange={handleChange}
                 rows={3}
-                className={styles.inputField} />
+                className={styles.inputField}
+              />
             </Form.Group>
             {errors.content?.map((message, idx) => (
               <Alert variant="warning" className={styles.alertMessage} key={idx}>
@@ -108,6 +136,7 @@ function Contact() {
               </Alert>
             ))}
 
+            {/* Submit Button */}
             <button
               type="submit"
               className={`${styles.submitButton} ${btnStyles.Button}`}

@@ -24,7 +24,6 @@
   cursor: pointer;
 }
 
-/* ProfilePage.module.css */
 .ProfileImage {
   width: 170px; 
   height: 170px;
@@ -53,22 +52,21 @@
 
 
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 767px) {
   .PhotoAlbum {
-    grid-template-columns: 1fr; /* One photo per row on small screens */
+    grid-template-columns: 1fr;
   }
 
   .ProfileImage {
-    width: 120px; /* Adjust size for mobile */
-    height: 120px; /* Adjust size for mobile */
-    margin-bottom: 20px; /* Adjust margin for mobile */
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .PhotoAlbum {
-    grid-template-columns: repeat(2, 1fr); /* Two photos per row on medium screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
