@@ -29,11 +29,11 @@ import PopularProfiles from "../profiles/PopularProfiles";
  * @returns {JSX.Element} A page displaying a list of posts, search functionality, and popular profiles.
  */
 function PostsPage({ message, filter = "" }) {
-  const [posts, setPosts] = useState({ results: [] }); // State for storing fetched posts
-  const [hasLoaded, setHasLoaded] = useState(false); // State to track if posts have loaded
-  const { pathname } = useLocation(); // Get the current location (URL) for triggering refetch
+  const [posts, setPosts] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const { pathname } = useLocation();
 
-  const [query, setQuery] = useState(""); // State for storing the search query
+  const [query, setQuery] = useState("");
 
   /**
    * useEffect hook to fetch posts when the component mounts or when query, filter, or pathname changes.
@@ -43,23 +43,22 @@ function PostsPage({ message, filter = "" }) {
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
-        setPosts(data); // Set the fetched posts data
-        setHasLoaded(true); // Indicate that the posts have loaded
+        setPosts(data);
+        setHasLoaded(true);
       } catch (err) {
         // Error handling (optional to log error here)
       }
     };
 
-    setHasLoaded(false); // Reset loading state before fetching
+    setHasLoaded(false);
     const timer = setTimeout(() => {
-      fetchPosts(); // Fetch posts after a short delay to debounce input
+      fetchPosts();
     }, 1000);
 
     return () => {
-      clearTimeout(timer); // Clean up the timer when the component unmounts or query changes
+      clearTimeout(timer);
     };
-  }, [filter, query, pathname]); // Trigger effect when filter, query, or pathname changes
-
+  }, [filter, query, pathname]);
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -71,14 +70,14 @@ function PostsPage({ message, filter = "" }) {
         {/* Search bar for filtering posts */}
         <Form
           className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()} // Prevent form submission
+          onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
-            value={query} // Controlled input for search query
-            onChange={(event) => setQuery(event.target.value)} // Update query state on input change
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search posts" // Placeholder text for the search bar
+            placeholder="Search posts"
           />
         </Form>
 
@@ -91,10 +90,10 @@ function PostsPage({ message, filter = "" }) {
                 children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
                 ))}
-                dataLength={posts.results.length} // Number of posts currently displayed
-                loader={<Asset spinner />} // Display spinner while loading more posts
-                hasMore={!!posts.next} // Check if there are more posts to load
-                next={() => fetchMoreData(posts, setPosts)} // Fetch more posts on scroll
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => fetchMoreData(posts, setPosts)}
               />
             ) : (
               // If no posts are found, show a message and an image

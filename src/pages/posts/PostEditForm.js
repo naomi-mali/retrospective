@@ -120,7 +120,7 @@ function PostEditForm() {
           type="text"
           name="title"
           value={title}
-          onChange={handleChange} // Update the title state on change
+          onChange={handleChange} 
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
@@ -137,7 +137,7 @@ function PostEditForm() {
           rows={6}
           name="description"
           value={description}
-          onChange={handleChange} // Update the description state on change
+          onChange={handleChange}
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
@@ -153,7 +153,7 @@ function PostEditForm() {
           type="text"
           name="location"
           value={location}
-          onChange={handleChange} // Update the location state on change
+          onChange={handleChange}
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
@@ -170,7 +170,7 @@ function PostEditForm() {
           name="category"
           as="select"
           defaultValue="select"
-          onChange={handleChange} // Update the category state on change
+          onChange={handleChange}
         >
           <option value="select">Please select a category</option>
           {/* List of available categories for the user to choose from */}
@@ -206,13 +206,13 @@ function PostEditForm() {
       <Button
         className={`${styles.Button} ${styles.ButtonCancel} 
         ${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()} // Go back to the previous page on cancel
+        onClick={() => history.goBack()}
       >
         Cancel
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue} ${btnStyles.LargeButton}`}
-        type="submit" // Submit the form when clicked
+        type="submit"
       >
         Save
       </Button>
@@ -250,7 +250,7 @@ function PostEditForm() {
               <Form.File
                 id="image-upload"
                 accept="image/*"
-                onChange={handleChangeImage} // Handle image change
+                onChange={handleChangeImage}
                 ref={imageInput}
               />
             </Form.Group>
@@ -273,4 +273,4 @@ function PostEditForm() {
   );
 }
 
-export default PostEditForm; // Export the component for use in other parts of the application
+export default PostEditForm;

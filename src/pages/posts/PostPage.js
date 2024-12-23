@@ -17,7 +17,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import { OverlayTrigger, Tooltip } from "react-bootstrap"; // Ensure you have the correct imports
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 /**
  * PostPage component that handles displaying a single post with its comments.
@@ -26,12 +26,12 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap"; // Ensure you have th
  * @returns {JSX.Element} A page displaying a post, comments, and a form to add a comment.
  */
 function PostPage() {
-  const { id } = useParams(); // Extract post ID from the URL parameters
-  const [post, setPost] = useState({ results: [] }); // State for storing the post data
-  const [comments, setComments] = useState({ results: [] }); // State for storing the comments of the post
+  const { id } = useParams();
+  const [post, setPost] = useState({ results: [] });
+  const [comments, setComments] = useState({ results: [] });
 
-  const currentUser = useCurrentUser(); // Get the current logged-in user's details
-  const profile_image = currentUser?.profile_image; // Profile image of the current user, if available
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
 
   /**
    * useEffect hook to fetch the post and comments when the component mounts
@@ -42,18 +42,18 @@ function PostPage() {
       try {
         // Fetch the post and comments in parallel
         const [{ data: post }, { data: comments }] = await Promise.all([
-          axiosReq.get(`/posts/${id}`), // Fetch post data by ID
-          axiosReq.get(`/comments/?post=${id}`), // Fetch comments for the post
+          axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
         ]);
-        setPost({ results: [post] }); // Set the post data
-        setComments(comments); // Set the comments data
+        setPost({ results: [post] });
+        setComments(comments);
       } catch (err) {
         // Handle errors here if needed
       }
     };
 
-    handleMount(); // Call the function to fetch the post and comments
-  }, [id]); // Re-run the effect whenever the `id` changes
+    handleMount();
+  }, [id]);
 
   return (
     <Row className="h-100">
@@ -88,13 +88,13 @@ function PostPage() {
                   setComments={setComments}
                 />
               ))} 
-              dataLength={comments.results.length} // Length of the comments array
-              loader={<Asset spinner />} // Loader while fetching more data
-              hasMore={!!comments.next} // Check if there are more comments to load
-              next={() => fetchMoreData(comments, setComments)} // Function to load more comments
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span> // Message if no comments exist yet
+            <span>No comments yet, be the first to comment!</span>
           ) : (
             <span>
               No comments... yet.{" "}
