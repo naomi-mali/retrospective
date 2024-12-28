@@ -100,6 +100,12 @@
     - [Create a New App in Heroku](#create-a-new-app-in-heroku)
     - [Forking the GitHub Repository](#forking-the-github-repository)
     - [Images](#images)
+    -[Explanation for Removing the Report Button](#explanation-for-removing-the-report-button)
+       -[Challenges with Backend Integration](#challenges-with-backend-integration)
+       -[Decision to Remove the Report Button](#decision-to-remove-the-report-button)
+       -[Steps Taken](#steps-taken)
+       -[Benefits of Removing the Report Button](#benefits-of-removing-the-report-button)
+       -[Future Plans](#future-plans)
     - [Code](#code)
 
 
@@ -962,6 +968,53 @@ npm start
 ### Images
 
 All images used and designs were from or created with [Canva](https://www.canva.com/en_gb/)
+
+### Explanation for Removing the Report Button
+
+Due to challenges in connecting the frontend and backend, the report button for posts could not function as intended. Reports submitted through the button were not properly stored in the backend API, resulting in incomplete functionality. To maintain a high-quality user experience and avoid confusion, I  made a decision to temporarily remove the report button from the frontend. Below is a detailed explanation of why this decision was necessary and its benefits:
+
+---
+
+#### Challenges with Backend Integration
+1. **API Connectivity Issues:**  
+   Despite efforts to connect the report form to the backend API, the submission of reports did not work correctly. This could be due to errors in the API endpoint, incorrect payload structures, or other integration challenges.
+
+2. **Unsuccessful Data Storage:**  
+   Reports submitted via the frontend were not being saved in the backend database as expected. Without proper backend support, the report feature could not fulfill its purpose.
+
+3. **Impact on User Experience:**  
+   A non-functional report button would mislead users into thinking their reports were being processed, even though they were not being stored or reviewed. This could lead to frustration and erode trust in the platform.
+
+---
+
+### **Decision to Remove the Report Button**
+To address these challenges, the report button was removed from the frontend. This ensures that users are not exposed to a feature that does not work as intended, avoiding confusion and potential dissatisfaction.
+
+---
+
+### **Steps Taken**
+1. **Frontend Code Adjustment:**  
+   The code implementing the report button  was removed  to ensure the feature is no longer visible to users.
+---
+
+### **Benefits of Removing the Report Button**
+1. **Improved User Experience:**  
+   By removing a non-functional feature, users will not experience confusion or frustration when attempting to submit reports.
+
+2. **Streamlined Interface09:**  
+   The platform interface is simplified, focusing only on features that work correctly and add value.
+
+3. **Encourages Future Improvements:**  
+   Temporarily removing the feature allows time to address backend issues thoroughly and reintroduce the report button later with full functionality.
+
+4. **Focus on Core Features:**  
+   Resources can be reallocated to refining and improving other features that contribute to the platform’s core value.
+
+---
+
+### **Future Plans**
+Once the backend integration issues are resolved, the report feature can be revisited and reintroduced with proper testing to ensure seamless functionality. This will allow users to report inappropriate or objectionable content effectively, enhancing the platform's integrity and safety.
+By removing the report button for now, the platform avoids potential user confusion and maintains a focus on delivering a polished and reliable user experience. This temporary measure ensures the integrity of the platform while providing an opportunity to revisit the feature in the future with the necessary backend support.
 
 ### Code
 This project was inspired by the Code Institute moments walkthrough project.
