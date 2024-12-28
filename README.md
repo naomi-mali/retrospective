@@ -284,6 +284,9 @@ Cloud Storage Integration: Utilize cloud storage for static images and other med
 Data Security: Ensure user data is securely stored and protected through encryption and best practices.
 
 #### 9.Future Enhancements (Out of Current Scope)
+
+----
+
 Advanced Analytics: Consider implementing user analytics to track engagement metrics and improve user experience over time.
 Integration with External Platforms: Future integration with other social media platforms for broader sharing options.
 
@@ -309,6 +312,9 @@ As Retrospective continues to evolve, there are several exciting features and en
    - **Future Benefits**: Personalized profiles will allow users to express themselves more freely, making the platform feel more like a space to celebrate personal milestones and life moments.
 
 ### Why These Features?
+
+----
+
 These enhancements are intended to enrich the social experience on Retrospective, turning it into not just a place to showcase memories but also a platform for meaningful interactions and conversations. While these features couldn't be included in the initial launch due to time constraints, they are a natural next step in the platform’s development.
 
 Stay tuned for updates as these features are integrated into Retrospective in the coming months. I look forward to continuing to improve the site and expanding its capabilities to create an even better experience for users!
@@ -355,6 +361,8 @@ The avatar component is used throughout the site for users avatar and their user
 
 #### MoreDropdown & ProfileEdit Dropdown
 
+----
+
 ![Screenshot 2024-11-13 112627](https://github.com/user-attachments/assets/5a619d51-1bb9-4f44-ac9c-83c694fd6f62)
 
 
@@ -379,10 +387,13 @@ ProfileEditDropdown
 
 #### Navbar
 
+----
+
 The navbar is displayed on every page on the site, but will show different options for a logged in user to a non logged in user as well as on mobile and desktop devices.
 
 ## Desktop - signed in
 
+----
 
 A signed in user will see the options to:
 - Visit the homepage via the logo
@@ -396,6 +407,8 @@ A signed in user will see the options to:
 ![Screenshot 2024-11-13 112825](https://github.com/user-attachments/assets/db391af2-3680-4005-a44b-abd60ceddb8d)
 
 ## Desktop - signed out
+
+----
 
 ![aaaaaaaaa](https://github.com/user-attachments/assets/29060c35-d554-4829-b1df-0d1354355e5e)
 
@@ -443,6 +456,8 @@ Links to sign up sign in for users who are not logged in
 
 #### Sign up
 
+----
+
 ![signup](https://github.com/user-attachments/assets/a01281d2-f675-4811-a2dc-0f4121b3be83)
 
 This page is accessible for non signed in users via the navbar. For a desktop user it displays:
@@ -453,6 +468,7 @@ For a mobile user is displays:
 
 #### Sign in
 
+----
 
 ![signin](https://github.com/user-attachments/assets/6a727917-3de5-4094-b8ef-a4826f98b26a)
 
@@ -464,6 +480,8 @@ For a mobile user is displays:
 
 #### Feedback page
 
+----
+
 ![conyact](https://github.com/user-attachments/assets/4cb949cd-182c-4cd3-b483-30c830029120)
 
 This page is accessible from the landing page and can be reached via the logo in the navbar. 
@@ -471,12 +489,16 @@ It contains a form for users to fill out to give feedback to the site owners.
 
 #### Thanks
 
+----
+
 ![thanks](https://github.com/user-attachments/assets/a4a782f8-a5fc-4849-a782-961cdaac673a)
 
 Once the user fills out the form they are taken to a thank you page so they know the message has been sent.
 From there they are prompted to visit the feed page.
 
 #### Create a post
+
+----
 
 ![Screenshot 2024-12-12 143638](https://github.com/user-attachments/assets/e083e512-7f3f-460a-add8-9f77b6b93dc7)
 
@@ -493,17 +515,23 @@ The date will automatically be added.
 
 #### Edit a Post
 
+----
+
 ![edit](https://github.com/user-attachments/assets/b97472f9-3a30-403b-b42e-96bb8e6cb485)
 
 A user can edit one of their post via the dropdown menu in the post page. They are taken to a pre populated post form containing the details of the post that can all be modified.
 
 #### Delete a post
 
+----
+
 ![delete](https://github.com/user-attachments/assets/0281eaee-0361-4616-ab1f-4fb77d8ddde4)
 
 From the dropdown menu on a users post they also have the option to delete the post. Clicking on this will remove it from the site and the database then redirect the user to their feed page.
 
 #### View a post
+
+----
 
 Once a post has been created it will show up on the discover page and any other applicable pages (feed, liked and profile). From those pages the image and date will take a user to a page for the post containing more detail and any comments.
 
@@ -525,6 +553,8 @@ Location
 
 #### Feed pages
 
+----
+
 ![feed](https://github.com/user-attachments/assets/173504a0-a501-4e29-9919-5237ffe1ecea)
 
 ![sa2](https://github.com/user-attachments/assets/605bd4bd-63f5-470c-8e97-9b43267731e1)
@@ -541,6 +571,8 @@ Each page displayed post from newest to oldest from top to bottom and has an inf
 
 #### Comment 
 
+----
+
 ![comment](https://github.com/user-attachments/assets/413cdb8f-18b7-4327-b405-ac917eefeb9f)
 
 A signed in user can add a comment to a post from the posts detail page. The comment will be displayed under the post and can be edited or deleted by the author via the dropdown menu.
@@ -548,6 +580,8 @@ Comments are displayed newest to oldest from top to bottom and have an infinite 
 
 
 #### Like
+
+----
 
 ![like](https://github.com/user-attachments/assets/83831cf2-5247-4f38-97a5-b1161d168139)
 
@@ -559,6 +593,8 @@ A signed in user can like a post to show support for it by clicking the heart ic
 Clicking the heart icon a second time will unlike the post, undoing all the actions caused by liking the post.
 
 #### Profile
+
+----
 
 ![poff2](https://github.com/user-attachments/assets/c1a9021d-987d-4660-86ee-ce10802d6c8d)
 
@@ -574,6 +610,8 @@ Each user has a profile page that they can access from the navbar, accessing a d
 - The users posts
 
 #### Edit Profile
+
+----
 
 ![edit222](https://github.com/user-attachments/assets/dd9a5ef1-c8ae-4a0d-8c51-3e30ae17b20f)
 
@@ -597,11 +635,15 @@ A user can edit their own profile by clicking in the 3 dots dropdown menu at the
 
 #### Who to follow
 
+----
+
 For users to see who is active on the site there is a who to follow section on the feed pages. It contains 10 profile of the most active users for desktop and 4 for mobile.
 
 ![fffff](https://github.com/user-attachments/assets/969f91d1-07fd-47c0-882c-fe808c7ea668)
 
 #### Follow a user
+
+----
 
 ![wwww](https://github.com/user-attachments/assets/f66c676d-c7c4-491f-a62e-188378664031)
 
@@ -611,11 +653,15 @@ Following a user will add their posts to the signed in users feed page and incre
 
 #### PageNotFound
 
+----
+
 ![notfound](https://github.com/user-attachments/assets/a2a3f81a-a0b6-40d8-b7fc-d605fdec52eb)
 
 If a user navigated to an invalid url a custom 404 page will be displayed.
 
 ### Future Features
+
+----
 
 - Tagging Users in Posts and Comments: Enables users to mention others, fostering engagement and prompting notifications for a more connected experience.  
 - Private Messaging System: Allows users to send and receive direct messages, encouraging deeper, one-on-one interactions.  
@@ -626,11 +672,15 @@ If a user navigated to an invalid url a custom 404 page will be displayed.
 
 ### Languages
 
+----
+
 - HTML
 - CSS
 - JavaScript
 
 ### Frameworks, Libraries & Tools
+
+----
 
 - [Django Rest Framework](https://www.django-rest-framework.org/) - Backend API
 - [React](https://react.dev/) - Library for JS
@@ -658,6 +708,8 @@ Validation:
 
 ## Resources
 
+----
+
 - Code Institute Moments walkthrough
 - React Bootstrap Docs
 - Stack Overflow
@@ -667,6 +719,8 @@ Validation:
 
 ## Validation
 
+----
+
 The Highlights site has been passed through the following validators: 
 - [WC3 HTML Validator](https://validator.w3.org/)
 - [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/)
@@ -674,6 +728,8 @@ The Highlights site has been passed through the following validators:
 - [Google Chrome Lighthouse Validator](https://developer.chrome.com/docs/lighthouse/overview/).
 
 ## HTML Validation - W3C
+
+----
 
 The WC3 Validator was used on the following pages.
 
@@ -820,9 +876,13 @@ All the pages were passed through the W3C CSS Validation Service with no errors 
 
 ### JavaScript Validation - ESLint
 
+----
+
 The ESLint validator plugin was used throughout development and no errors were present on final deployment.
 
 ### Lighthouse Validation - Accessibility
+
+----
 
 The Chrome Lighthouse Dev Tool was used to test performance, accessibility, best practices and SEO on both desktop and mobile.
 
@@ -846,7 +906,7 @@ The Chrome Lighthouse Dev Tool was used to test performance, accessibility, best
 
 ### Manual Testing of User Stories
 
-
+----
 
 | User Story | Action | Expected Outcome | Result |
 |------------|--------|------------------|--------|
@@ -898,6 +958,8 @@ The Chrome Lighthouse Dev Tool was used to test performance, accessibility, best
 
 ### Responsiveness
 
+----
+
 All pages were tested to ensure responsiveness on screen sizes from 320px and upwards as defined in WCAG 2.1 Reflow criteria for responsive design on Chrome, Firefox and Safari.
 
 Steps to test:
@@ -917,13 +979,18 @@ Website behaved as expected.
 
 ### Browser compatibility
 
+----
+
 Testing has been carried out on the following browsers:
 
 - Google Chrome
 - Firefox
 - Safari
 
+
 ## Project Setup and Initial Deployment
+
+----
 
 - Create a new repository in GitHub.
 
@@ -952,6 +1019,8 @@ npm start
 
 ### Create a new app in Heroku.
 
+----
+
 - Go to `Settings` and ensure that heroku/nodejs buildpack is present. If it is not, click on `Add Buildpack`, select `nodejs` and save changes.
 - Click on the `Deploy` tab and go to `Deployment Method`. Click on `GitHub`.
 - Go to `App connected to GitHub` and search for the relevant repository. Select that repository and click `Connect`.
@@ -961,19 +1030,24 @@ npm start
 
 ## Forking the GitHub Repository
 
+----
+
 - Go to the GitHub repository
 - Click on `Fork` button in top right corner
 - You will then have a copy of the repository in your own GitHub account.
 
 ### Images
 
+----
+
 All images used and designs were from or created with [Canva](https://www.canva.com/en_gb/)
 
 ### Explanation for Removing the Report Button
 
+----
+
 Due to challenges in connecting the frontend and backend, the report button for posts could not function as intended. Reports submitted through the button were not properly stored in the backend API, resulting in incomplete functionality. To maintain a high-quality user experience and avoid confusion, I  made a decision to temporarily remove the report button from the frontend. Below is a detailed explanation of why this decision was necessary and its benefits:
 
----
 
 #### Challenges with Backend Integration
 1. **API Connectivity Issues:**  
@@ -1015,6 +1089,8 @@ To address these challenges, the report button was removed from the frontend. Th
 ### **Future Plans**
 Once the backend integration issues are resolved, the report feature can be revisited and reintroduced with proper testing to ensure seamless functionality. This will allow users to report inappropriate or objectionable content effectively, enhancing the platform's integrity and safety.
 By removing the report button for now, the platform avoids potential user confusion and maintains a focus on delivering a polished and reliable user experience. This temporary measure ensures the integrity of the platform while providing an opportunity to revisit the feature in the future with the necessary backend support.
+
+----
 
 ### Code
 This project was inspired by the Code Institute moments walkthrough project.
